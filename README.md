@@ -1,1 +1,1 @@
-# EasyNutri_Django
+# EasyNutri.Django
