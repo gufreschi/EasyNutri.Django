@@ -4,6 +4,9 @@ from .models import Usuario
 def cadastro(request):
     return render(request,'usuarios/cadastro.html')
 
+def login(request):
+    return render(request,'usuarios/login.html')
+
 def usuarios(request):
     # Salvar os dados da tela para o banco de dados.
     novo_usuario = Usuario()
@@ -16,4 +19,5 @@ def usuarios(request):
     novo_usuario.conf_senha = request.POST.get('conf_senha')
     novo_usuario.save()
 
-    #Exibir os usuarios cadastrados na tela.
+    #Retornar para a pagina de login.
+    return render(request, 'usuarios/login.html')

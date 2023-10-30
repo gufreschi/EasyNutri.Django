@@ -244,16 +244,16 @@ header .image-text .description{
     background-color: var(--secondary-color)
 }
 
-.login-card,
-.cadastro-card{
+.cadastro-card,
+.login-card {
     display: flex;
     justify-content: center;
     margin-left: 88px;
     margin-top: 2em;
 }
 
-.login-item,
-.cadastro-item {
+.cadastro-item,
+.login-item {
     background-color: #fff;
     display: flex;
     flex-direction: column;
@@ -279,7 +279,9 @@ header .image-text .description{
 }
 
 .campo input[type="text"]:focus,
-.campo input[type="password"]:focus {
+.campo input[type="password"]:focus,
+.campo input[type="date"]:focus,
+.campo input[type="tel"]:focus {
     background-color: #c9c9c9;
 }
 
