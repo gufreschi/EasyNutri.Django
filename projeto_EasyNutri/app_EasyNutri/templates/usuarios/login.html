@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0,max-scale=1.0">
 
+    {% load static %}
     <!--CSS-->
-    <link rel="stylesheet" href="static/css/forms.css">
+    <link rel="stylesheet" href="{% static "css/forms.css" %}">
 
     <!--FONTE-->
     <link
@@ -15,7 +16,7 @@
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
 
     <!--FAVICON-->
-    <link rel="shortcut icon" href="static/images/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="{% static "images/favicon.ico" %}" type="image/x-icon">
 
     <title>EasyNutri - Login</title>
 </head>
@@ -26,7 +27,7 @@
         <header>
             <div class="image-text">
                 <span class="image">
-                    <img src="static/images/easynutri-icon.png" alt="easynutri logotipo">
+                    <img src="{% static "images/easynutri-icon.png" %}" alt="easynutri logotipo">
                 </span>
 
                 <div class="text logo-text">
@@ -45,7 +46,7 @@
 
         <div class="profile">
             <a href="#">
-                <img class="profile-pic" src="static/images/profile-icon.png" alt="foto de perfil">
+                <img class="profile-pic" src="{% static "images/profile-icon.png" %}" alt="foto de perfil">
             </a>
         </div>
     </header>
@@ -72,17 +73,16 @@
                 
                 <div class="campo">
                         <button class="button">Entrar</button>
-                </div>    
-
+                </div>
             </fieldset>
         </form>
-    </section>
 
-    <div class="info">
-        <small>           
-            <h3>Ainda não possui cadastro?</h3>
-            <a href="{% url 'cadastro' %}">Cadastrar-se</a>            
-        </small>
-    </div>
+        <bottom class="extra">
+            <div class="info">
+                <h3>Ainda não possui cadastro?</h3>
+                <a href="{% url 'cadastro' %}">Cadastrar-se</a>
+            </div>
+        </bottom>     
+    </section>          
 
 </body>

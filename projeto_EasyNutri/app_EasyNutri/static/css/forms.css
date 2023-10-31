@@ -260,7 +260,7 @@ header .image-text .description{
     padding: 1em;
     border-radius: 8px;
     width: 20em;
-    height: 17em;
+    height: 14em;
 }
 
 .cadastro-item {
@@ -288,6 +288,7 @@ header .image-text .description{
 .campo .button {
     text-align: center;
     margin-left: 4.2em;
+    margin-top: 1em;
     width: 10em;
     height: 2em;
     font-size: 1em;
@@ -298,4 +299,13 @@ header .image-text .description{
 
 .campo .button:hover {
     background-color: #c9c9c9;
+}
+
+.extra .info {
+    display: flex;
+    flex-direction: column;
+    margin-left: 43.3em;
+    margin-top: 10px;
+    justify-content: center;
+    font-size: smaller;
 }
