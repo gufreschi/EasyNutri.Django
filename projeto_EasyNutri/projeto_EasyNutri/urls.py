@@ -1,8 +1,8 @@
-from django.urls import path
+from django.contrib import admin
+from django.urls import path, include
 from app_EasyNutri import views
 
 urlpatterns = [
-    path('', views.cadastro, name='cadastro'),
-    path('usuarios/', views.usuarios, name='listagem_usuarios'),
-    path('', views.login, name='login'),
+    path('admin/', admin.site.urls),
+    path('', include('app_EasyNutri.urls')),
 ]

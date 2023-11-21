@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% block content %}
+   
+    <section>
+        <div class="feed-divider"></div>
+        <h2 id="heading1">Cadastro</h2>
+
+        <form class="cadastro-card" method="POST" action="{% url 'cadastro-nutri' %}">
+
+            {% csrf_token %}
+
+            {{ form.as_p }}
+
+            <fieldset class="cadastro-item">
+
+                <div class="campo">
+                    <input required type="text" name="username" placeholder="Nome de usuário"/>
+                </div>
+
+                <div class="campo">
+                    <input required type="text" id="cpf" name="cpf" placeholder="CPF"/>
+                </div>
+
+                <div class="campo">
+                    <input required type="email" name="email" placeholder="Email"/>
+                </div>
+
+                <div class="campo">
+                    <input required type="text" name="data_nascimento" placeholder ="Data de nascimento" onfocus="this.type='date'" onblur="this.type='text'" />
+                </div>
+
+                <div class="campo">
+                    <input required type="tel" name="telefone" placeholder="Telefone"/>
+                </div>
+
+                <div class="campo">
+                    <input required type="password" name="senha1" minlength="8" placeholder="Senha"/>
+                </div>
+
+                <div class="campo">
+                    <input required type="password" name="senha2" minlength="8" placeholder="Repita a senha"/>
+                </div>
+
+                <div class="campo">
+                    <button type="submit" class="button">Cadastrar</button>
+                </div>
+            </fieldset>
+
+        </form>
+
+        <bottom>
+            <div class="extra">
+                <h3>Já possui cadastro?</h3>
+                <a href="{% url 'login-nutri' %}">Entrar</a>
+            </div>
+        </bottom>
+        
+    </section>
+
+{% endblock %}

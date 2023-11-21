@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+   
+    <section>
+        <div class="feed-divider"></div>
+        <h2 id="heading1">Cadastro</h2>
+
+        <form class="cadastro-card" method="POST" action="{% url 'role' %}">
+
+            {% csrf_token %}
+
+            {{ form.as_p }}
+
+            <fieldset class="cadastro-item">
+
+                <div class="campo">
+                    <label>Tipo de registro:</label>
+                    <select required name="role">
+                        <option value="">...</option>
+                        <option value="nutri">Nutricionista</option>
+                        <option value="paciente">Paciente</option>
+                    </select>
+                </div>
+
+                <div class="campo">
+                    <button type="submit" class="button">Continuar</button>
+                </div>
+
+            </fieldset>
+
+{% endblock %}
