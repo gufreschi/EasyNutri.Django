@@ -42,27 +42,33 @@
         <div class="menu-bar">
             <div class="menu">
                 <ul class="menu-links">
-
+        
                     {% if user.is_authenticated %}
-                    <li class="nav-link">
-                        <a href="{% url 'home-paciente' %}">
-                            <i class='bx bx-home-alt icon' ></i>
-                            <span class="text nav-text">Home</span>
-                        </a>
-                    </li>
+                        {% with role=request.session.role %}
+                            {% if role == 'paciente' %}
 
-                    <li class="nav-link">
-                        <a href="#">
-                            <i class='bx bx-bell icon'></i>
-                            <span class="text nav-text">Notificações</span>
-                        </a>
-                    </li>
+                                <li class="nav-link">
+                                    <a href="{% url 'home-paciente' %}">
+                                        <i class='bx bx-home-alt icon' ></i>
+                                        <span class="text nav-text">Home</span>
+                                    </a>
+                                </li>
+                            {% elif role == 'nutri' %}
+                                <li class="nav-link">
+                                    <a href="{% url 'home-nutri' %}">
+                                        <i class='bx bx-home-alt icon' ></i>
+                                        <span class="text nav-text">Home</span>
+                                    </a>
+                                </li>
+
+                            {% endif %}
+                        {% endwith %}
                     {% endif %}
 
                     <li class="nav-link">
-                        <a href="#">
+                        <a href="{% url 'devs' %}">
                             <i class='bx bx-group icon'></i>
-                            <span class="text nav-text">Quem somos nós?</span>
+                            <span class="text nav-text">Sobre nós</span>
                         </a>
                     </li>
                 </ul>

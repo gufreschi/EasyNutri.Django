@@ -7,12 +7,16 @@ from django.contrib.auth.models import User
 def role(request):
     if request.method == 'POST':
         role = request.POST.get('role')
+        request.session['role'] = role
         if role == 'nutri':
             return redirect('cadastro-nutri')
         elif role == 'paciente':
             return redirect('cadastro-paciente')
 
     return render(request, 'role.html')
+
+def devs(request):
+    return render(request, 'devs.html')
 
 ########## PACIENTE ##########
 
@@ -41,7 +45,7 @@ def register_paciente(request):
             return redirect('login-paciente')
         else:
             messages.error(request, ('As senhas devem ser iguais.'))
-            return redirect('cadastro=paciente')
+            return redirect('cadastro-paciente')
     else:
         return render(request, 'paciente/cadastro.html')
 
@@ -64,7 +68,7 @@ def login_paciente(request):
 def logout_user(request):
     logout(request)
     messages.success(request, ('Você foi desconectado...'))
-    return redirect('login-paciente')
+    return redirect('role') 
 
 ########## NUTRICIONISTA ##########
 
