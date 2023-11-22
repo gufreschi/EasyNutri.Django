@@ -61,13 +61,26 @@
                                     </a>
                                 </li>
 
+                                <li class="nav-link">
+                                    <a href="{% url 'listagem-de-pacientes' %}">
+                                        <i class='bx bx-group icon' ></i>
+                                        <span class="text nav-text">Pacientes</span>
+                                    </a>
+                                </li>
+
+                                <li class="nav-link">
+                                    <a href="{% url 'registro-de-pacientes' %}">
+                                        <i class='bx bx-user-plus icon' ></i>
+                                        <span class="text nav-text">Registrar paciente</span>
+                                    </a>
+                                </li>
                             {% endif %}
                         {% endwith %}
                     {% endif %}
 
                     <li class="nav-link">
-                        <a href="{% url 'devs' %}">
-                            <i class='bx bx-group icon'></i>
+                        <a href="{% url 'sobre' %}">
+                            <i class='bx bx-at icon'></i>
                             <span class="text nav-text">Sobre nós</span>
                         </a>
                     </li>

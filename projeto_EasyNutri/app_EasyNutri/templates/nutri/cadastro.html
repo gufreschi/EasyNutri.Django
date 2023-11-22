@@ -9,8 +9,6 @@
 
             {% csrf_token %}
 
-            {{ form.as_p }}
-
             <fieldset class="cadastro-item">
 
                 <div class="campo">
@@ -26,7 +24,7 @@
                 </div>
 
                 <div class="campo">
-                    <input required type="text" name="data_nascimento" placeholder ="Data de nascimento" onfocus="this.type='date'" onblur="this.type='text'" />
+                    <input required type="text" name="data_nascimento" placeholder ="Data de nascimento" onfocus="this.type='date'" onblur="this.type='text'"/>
                 </div>
 
                 <div class="campo">

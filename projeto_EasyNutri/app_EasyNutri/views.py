@@ -1,8 +1,8 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
-from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
+from .models import Paciente
 
 def role(request):
     if request.method == 'POST':
@@ -15,8 +15,8 @@ def role(request):
 
     return render(request, 'role.html')
 
-def devs(request):
-    return render(request, 'devs.html')
+def sobre(request):
+    return render(request, 'sobre.html')
 
 ########## PACIENTE ##########
 
@@ -68,12 +68,33 @@ def login_paciente(request):
 def logout_user(request):
     logout(request)
     messages.success(request, ('Você foi desconectado...'))
-    return redirect('role') 
+    return redirect('role')
 
 ########## NUTRICIONISTA ##########
 
 def home_nutri(request):
-    return render(request, 'nutri/home.html', {})
+    return render(request, 'nutri/home.html')
+
+def registro(request):
+    if request.method == 'POST':
+        nome = request.POST.get('nome')
+        cpf = request.POST.get('cpf')
+        data_nascimento = request.POST.get('data_nascimento')
+
+        cpf_check = Paciente.objects.filter(cpf=cpf).first()
+        if cpf_check:
+            messages.error(request, ('Esse cpf já está cadastrado'))
+            return redirect('registro-de-pacientes')
+
+        novo_paciente = Paciente(nome=nome, cpf=cpf, data_nascimento=data_nascimento)
+        novo_paciente.save()
+        return redirect('listagem-de-pacientes')
+        
+    return render(request, 'nutri/registro.html',)
+
+def pacientes(request):
+    pacientes = Paciente.objects.all()
+    return render(request, 'nutri/pacientes.html', {'pacientes': pacientes})
 
 def register_nutri(request):
     if request.method == 'POST':

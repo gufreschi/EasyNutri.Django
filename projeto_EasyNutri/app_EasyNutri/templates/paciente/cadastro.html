@@ -8,9 +8,7 @@
         <form class="cadastro-card" method="POST" action="{% url 'cadastro-paciente' %}">
 
             {% csrf_token %}
-
-            {{ form.as_p }}
-
+            
             <fieldset class="cadastro-item">
 
                 <div class="campo">

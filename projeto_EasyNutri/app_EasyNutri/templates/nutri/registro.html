@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<section>
+    <div class="feed-divider"></div>
+    <h2 id="heading1">Registrar paciente</h2>
+
+    <form class="cadastro-card" method="POST" action="{% url 'listagem-de-pacientes' %}">
+
+        {% csrf_token %}
+
+        <fieldset class="cadastro-item">
+
+            <div class="campo">
+                <input required type="text" name="nome" placeholder="Nome completo"/>
+            </div>
+
+            <div class="campo">
+                <input required type="text" id="cpf" name="cpf" placeholder="CPF"/>
+            </div>
+
+            <div class="campo">
+                    <input required type="text" name="data_nascimento" placeholder ="Data de nascimento" onfocus="this.type='date'" onblur="this.type='text'"/>
+                </div>
+
+            <div class="campo">
+                <button type="submit" class="button">Registrar</button>
+            </div>
+
+        </fieldset>
+
+    </form>
+
+{% endblock %}
